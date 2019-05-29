@@ -1,0 +1,92 @@
+[{
+    "id": 1,
+    "path": "/Users/griffin/Dropbox/_Courses/OldCourses/5133_Advanced_Computer_Architecture/figures",
+    "name": "VirtualPhysicalMapping.png",
+    "size": 153225,
+    "modify_date": "2014-02-04 08:02",
+    "ext": ".png"
+}, {
+    "id": 2,
+    "path": "/Users/griffin/Dropbox/_Courses/OldCourses/5133_Advanced_Computer_Architecture/figures",
+    "name": "VirtualMemoryLayout.png",
+    "size": 100896,
+    "modify_date": "2014-02-04 08:02",
+    "ext": ".png"
+}, {
+    "id": 3,
+    "path": "/Users/griffin/Dropbox/_Courses/OldCourses/5133_Advanced_Computer_Architecture/figures",
+    "name": "VirtualAddress.png",
+    "size": 26777,
+    "modify_date": "2014-02-04 08:02",
+    "ext": ".png"
+}, {
+    "id": 4,
+    "path": "/Users/griffin/Dropbox/_Courses/OldCourses/5133_Advanced_Computer_Architecture/figures",
+    "name": "VirtualMemoryLayout_small.png",
+    "size": 55400,
+    "modify_date": "2014-02-04 08:02",
+    "ext": ".png"
+}, {
+    "id": 5,
+    "path": "/Users/griffin/Dropbox/_Courses/OldCourses/5133_Advanced_Computer_Architecture/figures",
+    "name": "VirtualAddress_small.png",
+    "size": 16459,
+    "modify_date": "2014-02-04 08:02",
+    "ext": ".png"
+}, {
+    "id": 6,
+    "path": "/Users/griffin/Dropbox/_Courses/OldCourses/5133_Advanced_Computer_Architecture/lectures",
+    "name": "VirtualMemory.md",
+    "size": 19599,
+    "modify_date": "2014-02-04 08:02",
+    "ext": ".md"
+}, {
+    "id": 7,
+    "path": "/Users/griffin/Dropbox/_Courses/OldCourses/5133_Advanced_Computer_Architecture/lectures",
+    "name": "VirtualMemory.html",
+    "size": 21694,
+    "modify_date": "2014-02-04 08:02",
+    "ext": ".html"
+}, {
+    "id": 8,
+    "path": "/Users/griffin/Dropbox/_Courses/OldCourses/5133_Advanced_Computer_Architecture/lectures",
+    "name": "virtual_memory.html",
+    "size": 20816,
+    "modify_date": "2014-02-04 08:02",
+    "ext": ".html"
+}, {
+    "id": 9,
+    "path": "/Users/griffin/Dropbox/_Courses/OldCourses/5133_Advanced_Computer_Architecture/lectures",
+    "name": "virtual_memory.md",
+    "size": 19368,
+    "modify_date": "2014-02-04 08:02",
+    "ext": ".md"
+}, {
+    "id": 10,
+    "path": "/Users/griffin/Dropbox/_Courses/OldCourses/5133_Advanced_Computer_Architecture/lectures/slide_images/virtual_memory",
+    "name": "virt_addr.png",
+    "size": 2771,
+    "modify_date": "2014-02-04 08:02",
+    "ext": ".png"
+}, {
+    "id": 11,
+    "path": "/Users/griffin/Dropbox/_Courses/OldCourses/5133_Advanced_Computer_Architecture/lectures/slide_images/virtual_memory",
+    "name": "tlb.png",
+    "size": 2311,
+    "modify_date": "2014-02-04 08:02",
+    "ext": ".png"
+}, {
+    "id": 12,
+    "path": "/Users/griffin/Dropbox/_Courses/OldCourses/5133_Advanced_Computer_Architecture/lectures/slide_images/virtual_memory",
+    "name": "virt_addr2.png",
+    "size": 4025,
+    "modify_date": "2014-02-04 08:02",
+    "ext": ".png"
+}, {
+    "id": 13,
+    "path": "/Users/griffin/Dropbox/_Courses/OldCourses/5133_Advanced_Computer_Architecture/lectures/slide_images/virtual_memory",
+    "name": "page_table.png",
+    "size": 2255,
+    "modify_date": "2014-02-04 08:02",
+    "ext": ".png"
+}]
