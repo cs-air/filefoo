@@ -1,14 +1,21 @@
-## Requirements
+## Dual Goals
 
-pip3 install humanfriendly
-pip3 install columnar
-pip3 install tqdm
-pip3 install halo
-pip3 install clr
-pip3 install whaaaaat
-pip3 install prompt_toolkit
+- create a pypi worthy package using modern dev tools for students to learn project management
+- create a cool command line tool to do many things with files
 
-## Todo
+## So Far
+
+### Requirements
+
+- humanfriendly
+- columnar
+- tqdm
+- halo
+- clr
+- whaaaaat
+- install prompt_toolkit
+
+### Todo
 
 - Lowercase all files in directory
 - Compare directories of like name
@@ -19,7 +26,7 @@ pip3 install prompt_toolkit
 - Handle hidden files (ignore or not)
 
 
-## ??
+### ??
 
 
 - Break commands down even further?
