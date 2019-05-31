@@ -71,6 +71,8 @@ Examples:
 
 ### Todo Ideas
 
+- Find and rename files based on a naming pattern.
+- Find and move files.
 - Lowercase all files in 1 or more directories
 - Change file naming type to `camelCase` or `snake_case` or `kebab-case` or ??
 - Compare directory contents
