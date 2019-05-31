@@ -15,7 +15,7 @@ import  humanfriendly               # https://pypi.org/project/humanfriendly/
 from abspath import abs_path
 from helper import dprint
 from helper import Borg
-from helper import Spinner
+from helper import SpinRun
 from helper import ThrowError
 from helper import Usage
 
@@ -190,7 +190,7 @@ class FindFiles(object):
             none
         """
 
-        with Spinner(self.counts):
+        with SpinRun(self.counts):
             self._find(self.path)
 
         sys.stdout.write("\r")
