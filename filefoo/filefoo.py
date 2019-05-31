@@ -146,7 +146,6 @@ class Interactive(FindFiles):
         pass
 
 
-
 def main(*args,**kwargs):
     valid_commands = {
         'fin': "Find files or directories.",

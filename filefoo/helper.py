@@ -43,7 +43,35 @@ class Borg(object):
         self.__dict__ = cls._state
         return self
 
-class Spinner:
+class Spinner(object):
+    def __init__(self,spinner='dots1'):
+        self.spinners = {
+            "dots1":list("⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏"),
+            "dots2":list("⣾⣽⣻⢿⡿⣟⣯⣷"),
+            "bounce1":list("⠁⠂⠄⡀⢀⠠⠐⠈"),
+            "spin1":list("|/-\\"),
+            "square1":list("◰◳◲◱"),
+            "circle1":list("◴◷◶◵"),
+            "circle2":list("◐◓◑◒"),
+            "arrow1":list("←↖↑↗→↘↓↙"),
+            "what1":[">))'>    ", "  >))'>  ", "   >))'> ", "    >))'>", "   >))'> ", "  <'((<  ", " <'((<   ", "<'((<    "]
+        }
+        if not spinner in self.spinners:
+            self.s = "dots2"
+        else:
+            self.s = spinner
+        self.i = 0
+        self.j = len(self.spinners[self.s])
+    
+    def next(self):
+        ch = str(self.spinners[self.s][self.i])
+        self.i += 1
+        if self.i == self.j:
+            self.i = 0
+        return ch
+
+
+class SpinRun:
     """ Prints a "progress" of sorts showing a task is still running.
     """
     busy = False
@@ -52,10 +80,17 @@ class Spinner:
     #spinner_list = ['|','/','-','\\']
     spinner_list = ["⠋","⠙","⠹","⠸","⠼","⠴","⠦","⠧","⠇","⠏"]
 
+
     def __init__(self, counts,delay=None):
         self.spin_time = time.time() 
         self.counts = counts
-        if delay and float(delay): self.delay = delay
+        if delay and float(delay): 
+            self.delay = delay
+        
+        self.s1 = Spinner('dots1')
+        self.s2 = Spinner('circle2')
+        self.s3 = Spinner('arrow1')
+        self.s4 = Spinner('circle1')
 
     def spinner_task(self):
         while self.busy:
@@ -72,13 +107,18 @@ class Spinner:
             self.counts.seconds = seconds
 
             dots = '.' * seconds # not used
-            schar = self.spinner_list[self.count%len(self.spinner_list)]
+
+            s1 = self.s1.next()
+            s2 = self.s2.next()
+            s3 = self.s3.next()
+            s4 = self.s4.next()
+ 
             f1 = str(self.counts.folders).ljust(8)
             f2 = str(self.counts.files).ljust(8)
             f3 = str(self.counts.found).ljust(8)
             f4 = humanfriendly.format_size(self.counts.size)
             f4 = str(f4).ljust(8)
-            diff = f"searching: {clr.bold.magenta(schar)} [ folders:{clr.bold.yellow(f1)} | files:{clr.bold.yellow(f2)} | found:{clr.bold.green(f3)} | size:{clr.bold.blue(f4)}  | time:{str(minutes).zfill(2)}:{str(seconds).zfill(2)}]"
+            diff = f"searching: [ folders:{clr.bold.yellow(f1)} {clr.bold.magenta(s1)} | files:{clr.bold.yellow(f2)} {clr.bold.magenta(s2)} | found:{clr.bold.green(f3)} {clr.bold.magenta(s3)} | size:{clr.bold.blue(f4)}  {clr.bold.magenta(s4)} | time:{str(minutes).zfill(2)}:{str(seconds).zfill(2)}]"
             sys.stdout.write(diff)
             sys.stdout.flush()
             time.sleep(self.delay)
