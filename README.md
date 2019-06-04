@@ -91,6 +91,7 @@ Examples:
 - Handle hidden files (ignore or not)
 - Find top X largest files.
 - Ignore backups (files or folders with `backup` in them?)
+- https://janakiev.com/blog/python-filesystem-analysis/
 - When searching for files or folders, how do you figure out an approximate time remaining? 
 
 Possible start to counting files / folders before a search to help with approx times.
