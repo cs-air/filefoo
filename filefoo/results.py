@@ -1,5 +1,5 @@
 import json
-from helper import ThrowError
+from utils import ThrowError
 import os
 
 class Results(object):

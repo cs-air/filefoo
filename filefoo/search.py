@@ -13,11 +13,11 @@ import  humanfriendly               # https://pypi.org/project/humanfriendly/
 
 # Local libray modules.
 from abspath import abs_path
-from helper import dprint
-from helper import Borg
-from helper import SpinRun
-from helper import ThrowError
-from helper import Usage
+from utils import dprint
+from utils import Borg
+from utils import SpinRun
+from utils import ThrowError
+from utils import Usage
 
 
 class Counts(Borg):
@@ -71,7 +71,7 @@ class File(object):
         return '\n\t\tFile:' + self.__str__()
 
 
-class FileCollection(object):
+class FileCollection(list):
     """ A collection of files :) Or a reflection of a "folder" with some detailed info.
     """
 
@@ -81,7 +81,23 @@ class FileCollection(object):
         self.files = []
         self.count = 0
 
-    def add_file(self, f):
+    def __len__(self): return len(self.files)
+
+    def __getitem__(self, i): return self.files[i]
+
+    def __delitem__(self, i): 
+        del self.files[i]
+        self.count = len(self.files)
+
+    def __setitem__(self, i, v):
+        self.check(v)
+        self.files[i] = v
+
+    def check(self, v):
+        if not isinstance(v, File):
+            raise (TypeError, v)
+
+    def append(self,f):
         """ Add a file to the collection.
 
             Parameters:
@@ -89,7 +105,17 @@ class FileCollection(object):
             f [string] : filename
         """
         self.files.append(f)
-        self.count += 1
+        self.count = len(self.files)
+
+    # def add_file(self, f):
+    #     """ Add a file to the collection.
+
+    #         Parameters:
+    #         ---------------
+    #         f [string] : filename
+    #     """
+    #     self.files.append(f)
+    #     self.count += 1
 
     def __str__(self):
         b = self.base
@@ -318,7 +344,7 @@ class FindFiles(object):
                     self.counts.size += fs
                     sum += fs
                     dprint((fs, f, fd, fe))
-                    self.results[dirpath].add_file(File(dirpath, f, fs, fd, fe))
+                    self.results[dirpath].append(File(dirpath, f, fs, fd, fe))
 
             self.results[dirpath].size = sum
 

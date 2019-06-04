@@ -13,10 +13,10 @@ import  clr                         # https://pypi.org/project/clr/
 # Local libray modules.
 from whaaaaat import style_from_dict, Token, prompt, print_json, Separator
 
-from helper import Usage
-from helper import ThrowError
+from utils import Usage
+from utils import ThrowError
 from search import FindFiles
-from helper import mykwargs
+from utils import mykwargs
 from results import Results
 
 if sys.platform.lower() == "win32":
