@@ -90,6 +90,22 @@ Examples:
   - etc.
 - Handle hidden files (ignore or not)
 - Find top X largest files.
+- Ignore backups (files or folders with `backup` in them?)
+- When searching for files or folders, how do you figure out an approximate time remaining? 
+
+Possible start to counting files / folders before a search to help with approx times.
+```python
+from os import listdir
+from os.path import isfile, join
+directory = '/home/myname/Maildir/new'
+print(sum(1 for entry in listdir(directory) if isdir(join(directory,entry))))
+
+# or for dirs
+
+for entry in listdir(directory):
+    if isdir(join(directory,entry)):
+        print(entry)
+```
 
 
 ### Problem
