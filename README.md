@@ -28,6 +28,9 @@ In addition, the results of a command can be saved in a specified format (json,c
   - whaaaaat      : uses prompt_toolkit and will be going away
   - prompt_toolkit: probably keep to help with terminal prompts
 
+>Note: Look at [int_ex_choices.py](./int_ex_choices.py) and [int_ex_expand.py](./int_ex_expand.py) for examples on how a user may interact with filefoo after running a "find" command.
+
+
 ### Existing Functionality
 
 ```
