@@ -22,50 +22,37 @@ style = style_from_dict({
 questions = [
     {
         'type': 'checkbox',
-        'message': 'Select toppings',
-        'name': 'toppings',
+        'message': 'Select files or folders',
+        'name': 'Results',
         'choices': [
-            Separator('= The Meats ='),
+            Separator('= Folders ='),
             {
-                'name': 'Ham'
+                'name': 'Documents'
             },
             {
-                'name': 'Ground Meat'
+                'name': 'Media'
             },
             {
-                'name': 'Bacon'
+                'name': 'Pictures'
             },
-            Separator('= The Cheeses ='),
+            Separator('= Files ='),
             {
-                'name': 'Mozzarella',
-                'checked': True
-            },
-            {
-                'name': 'Cheddar'
+                'name': '/Users/you/somefile.png',
+                'checked': False
             },
             {
-                'name': 'Parmesan'
-            },
-            Separator('= The usual ='),
-            {
-                'name': 'Mushroom'
+                'name': '/Users/you/somefile2.png',
             },
             {
-                'name': 'Tomato'
+                'name': '/Users/you/somefile3.jpg',
             },
+            Separator('= Delete All='),
             {
-                'name': 'Pepperoni'
+                'name': 'Delete All'
             },
-            Separator('= The extras ='),
+            Separator('= Move All ='),
             {
-                'name': 'Pineapple'
-            },
-            {
-                'name': 'Olives',
-                'disabled': 'out of stock'
-            },
-            {
-                'name': 'Extra cheese'
+                'name': 'Move All'
             }
         ],
         'validate': lambda answer: 'You must choose at least one topping.' \
