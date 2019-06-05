@@ -1,6 +1,18 @@
 from os import listdir
 from os.path import isfile, isdir, join
 from abspath import abs_path
+import pprint as pp
+
+class SummaryCounts:
+    def __init__(self):
+        self.dir_count = 0
+        self.file_count = 0
+
+    def __str__(self):
+        return f"Dirs: {self.dir_count} Files: {self.file_count}"
+    
+    def __repr__(self):
+        return self.__str__()
 
 
 class Summary(object):
@@ -9,8 +21,7 @@ class Summary(object):
         self.path = kwargs.get('path', '.')
         self.recurse = kwargs.get('recurse', False)
         self.depth = kwargs.get('depth', 1)
-        self.dir_count = 0
-        self.file_count = 0
+        self.counts = SummaryCounts()
         self.dirs = {
             0 : [self.path]
             }
@@ -27,9 +38,10 @@ class Summary(object):
                     item = join(d,entry)
                     if isdir(item):
                         self.dirs[i+1].append(item)
-                        self.dir_count += 1
+                        self.counts.dir_count += 1
                     else:
-                        self.file_count += 1
+                        self.counts.file_count += 1
+        return self.counts
             
 
     def get_dirs(self):
@@ -44,9 +56,9 @@ class Summary(object):
 
 
 if __name__=='__main__':
-    S = Summary(path=abs_path('~/Dropbox'),depth=2)
-    S.get_counts()
-    print(S)
-    print(S.get_dirs())
+    S = Summary(path=abs_path('~/Dropbox'),depth=3)
+    counts = S.get_counts()
+    print(counts)
+    pp.pprint(S.get_dirs())
 
         

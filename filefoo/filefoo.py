@@ -15,7 +15,7 @@ from whaaaaat import style_from_dict, Token, prompt, print_json, Separator
 
 from utils import Usage
 from utils import ThrowError
-from search import FindFiles
+from search import Find
 from utils import mykwargs
 from results import Results
 
@@ -24,7 +24,7 @@ if sys.platform.lower() == "win32":
 
 
 # TEMPORARY
-class Interactive(FindFiles):
+class Interactive(Find):
     def __init__(self,**kwargs):
         super().__init__(**kwargs)
 
@@ -164,7 +164,7 @@ def main(*args,**kwargs):
         print(Usage.print('main',valid_commands))
     else:
         if args[1] == 'fin':
-            f = FindFiles(**kwargs)
+            f = Find(**kwargs)
             res = f.find()
             files = Results.get_files(res)
             print(files)

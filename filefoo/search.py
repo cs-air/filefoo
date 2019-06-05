@@ -129,7 +129,7 @@ class FileCollection(list):
         return 'FileCollection:' + self.__str__()
 
 
-class FindFiles(object):
+class Find(object):
     """ A helper class to find files based on various parameters.
     """
     valid_commands = {
@@ -145,11 +145,12 @@ class FindFiles(object):
         'print_summary': 'Print a tabular summary of files.',
         'size': 'Size file should be (with some delta because exact matches are not reliable).',
         'size_delta': 'Size delta for a size match (+/- some small value). Default = 1 percent of size.',
-        'substr_match': 'String to partially match a filename.'
+        'substr_match': 'String to partially match a filename.',
+        'type': "['file','directory',folder','both','all']"
     }
     
     def __init__(self, **kwargs):
-        self.valid_commands = FindFiles.valid_commands
+        self.valid_commands = Find.valid_commands
         self._init_search(**kwargs)
 
 
@@ -157,7 +158,7 @@ class FindFiles(object):
         for k, v in kwargs.items():
             if not k in self.valid_commands:
                 ThrowError(message=f"{k}={v} is not a valid command parameter.", bail=False)
-                print(Usage.print('FindFiles',self.valid_commands))
+                print(Usage.print('Find',self.valid_commands))
                 ThrowError(message="quitting...")
 
         self.binary = kwargs.get('binary', True)
@@ -172,6 +173,7 @@ class FindFiles(object):
         self.size = kwargs.get('size', None)
         self.size_delta = kwargs.get('size_delta', None)
         self.substr_match = kwargs.get('substr_match', None)
+        self.type = kwargs.get('type', 'all')
 
         self.counts = Counts()
 
@@ -223,9 +225,12 @@ class FindFiles(object):
         sys.stdout.write(" "*200) # needs to be robust hard coded right now to erase line
         sys.stdout.write("\r\n")
 
+        # if self.type == 'folders':
+        #     return self.results.keys()
 
         return self.results
 
+    # not used?
     def get_result_directories(self):
         """ Return a list of directories in which files were found.
         """
@@ -238,6 +243,7 @@ class FindFiles(object):
 
         return dir_list
 
+    # not used?
     def get_result_files(self, dirnames=[]):
         """ Return a list of files in one or all of the directories.
         """

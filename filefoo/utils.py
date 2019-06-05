@@ -77,8 +77,6 @@ class SpinRun:
     busy = False
     delay = 0.05
     count = 1
-    #spinner_list = ['|','/','-','\\']
-    spinner_list = ["⠋","⠙","⠹","⠸","⠼","⠴","⠦","⠧","⠇","⠏"]
 
 
     def __init__(self, counts,delay=None):
